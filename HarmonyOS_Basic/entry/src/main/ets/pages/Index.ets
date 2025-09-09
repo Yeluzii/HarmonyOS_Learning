@@ -1,23 +1,26 @@
+import { MyButton } from '../components/MyButton'
+import { MyProfile } from '../components/MyProfile'
+
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
+  @State isOnline: boolean = false
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
+    Column({ space: 10 }) {
+      if (this.isOnline) {
+        MyProfile()
+      }
+      Text(this.isOnline ? '在线' : '离线')
+      MyButton({
+        text: this.isOnline ? '下线' : '上线',
+        color: this.isOnline ? Color.Red : Color.Green
+      })
         .onClick(() => {
-          this.message = 'Welcome';
+          this.isOnline = !this.isOnline
         })
     }
-    .height('100%')
     .width('100%')
+    .height('100%')
   }
 }

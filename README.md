@@ -101,7 +101,7 @@ HarmonyOS_Learning
 ### 编译与运行
 1. 克隆本仓库：
 ```bash
-git clone https://gitee.com/your-username/harmonyos-smart-terminal.git
+git clone https://github.com/Yeluzii/HarmonyOS_Learning.git
 ```
 2. 打开DevEco Studio，导入项目
 3. 配置鸿蒙设备（模拟器或真实设备）
