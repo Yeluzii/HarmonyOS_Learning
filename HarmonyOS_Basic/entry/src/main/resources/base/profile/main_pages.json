@@ -5,6 +5,12 @@
     "pages/UserList",
     "pages/SettingsPage",
     "pages/DataWatchExample",
-    "pages/RichTextPage"
+    "pages/RichTextPage",
+    "pages/components/TextComponentPage",
+    "pages/components/ImageComponentPage",
+    "pages/components/InputComponentPage",
+    "pages/components/ButtonComponentPage",
+    "pages/components/ListComponentPage",
+    "pages/components/CustomComponentPage"
   ]
 }
