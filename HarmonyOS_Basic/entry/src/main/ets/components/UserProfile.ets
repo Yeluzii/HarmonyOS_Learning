@@ -33,29 +33,58 @@ export struct UserProfile {
             .fontSize(16)
           if (this.userInfo.email) {
             Text(`邮箱：${this.userInfo.email}`)
+              .ellipsisMode(EllipsisMode.CENTER)
+              .textOverflow({
+                overflow: TextOverflow.Ellipsis
+              })
+              .maxLines(1)
               .fontSize(16)
           }
         }
+        .width('60%')
+        .layoutWeight(1)
         .alignItems(HorizontalAlign.Start)
 
+        Blank()
         Button(this.userInfo.active ? '禁用用户' : '启用用户')
           .backgroundColor(this.userInfo.active ? Color.Red : Color.Green)
           .onClick(() => {
             this.userInfo.active = !this.userInfo.active
           })
       }
+      .width('100%')
 
-      Text(this.userInfo.info)
-        .ellipsisMode(EllipsisMode.END)
-        .textOverflow({
-          overflow: TextOverflow.Ellipsis
-        })
-        .maxLines(3)
-        .width('100%')
-        .onClick(() => {
-          copyText(this.userInfo.info)
-        })
+      Column() {
+        Text('简介：')
+        if (this.userInfo.info) {
+
+          Text(this.userInfo.info)
+            .padding(2)
+            .border({
+              radius: 5
+            })
+            .backgroundColor('#F3F3F3')
+            .ellipsisMode(EllipsisMode.END)
+            .textOverflow({
+              overflow: TextOverflow.Ellipsis
+            })
+            .maxLines(3)
+            .width('100%')
+            .onClick(() => {
+              copyText(this.userInfo.info)
+            })
+        }else {
+          Text('暂无简介')
+        }
+      }
+      .alignItems(HorizontalAlign.Start)
     }
+    .shadow({
+      radius: 16,
+      color: Color.Gray,
+      offsetX: 5,
+      offsetY: 5,
+    })
     .padding(10)
     .border({
       width: 1,
@@ -65,7 +94,7 @@ export struct UserProfile {
   }
 }
 
-function copyText(text: string) {
+function copyText(text?: string) {
   const uiContext: UIContext | undefined = AppStorage.get('context');
   // Create clipboard content object
   const pasteboardData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, text);

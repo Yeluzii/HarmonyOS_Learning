@@ -1,5 +1,10 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/StateAndProp",
+    "pages/UserList",
+    "pages/SettingsPage",
+    "pages/DataWatchExample",
+    "pages/RichTextPage"
   ]
 }

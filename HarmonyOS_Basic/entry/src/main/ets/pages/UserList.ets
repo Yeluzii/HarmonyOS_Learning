@@ -1,6 +1,7 @@
 import { UserInfo } from "../model/UserInfo";
-import { UserProfile } from "./UserProfile";
+import { UserProfile } from "../components/UserProfile";
 
+@Entry
 @Component
 export struct UserList {
   // @State userInfo: UserInfo = {
@@ -17,6 +18,7 @@ export struct UserList {
       name: '张三',
       age: 18,
       avatar: $r('app.media.avatar_null'),
+      email: 'zhangsan@123.com',
       active: true,
       info: '我是张三。。。。。。。'
     },
@@ -40,7 +42,7 @@ export struct UserList {
 
   build() {
     Column() {
-      TextInput({ placeholder: '请输入...'})
+      TextInput({ placeholder: '请输入...' })
       List({ space: 10 }) {
         ForEach(this.users, (userInfo: UserInfo) => {
           ListItem() {
@@ -50,7 +52,7 @@ export struct UserList {
           }
         })
       }
-      .width('80%')
+      .width('95%')
     }
     .width('100%')
     .height('100%')

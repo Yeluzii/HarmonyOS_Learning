@@ -5,5 +5,5 @@ export interface UserInfo {
   avatar: Resource;
   email?: string;
   active: boolean;
-  info: string;
+  info?: string;
 }
